@@ -57,7 +57,7 @@ export const CountryCard = ({ country, damageUSD, damagePerDayUSD, louvreHeists,
             </div>
             <div>
               <p className="text-sm text-muted-foreground">
-                Estimated Annual Damage of Air Polluiton Equivalent to a $100M Louvre heist every
+                Estimated Annual Damage of Air Pollution Equivalent to a $100M Louvre heist every:
               </p>
               <p className="text-3xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
                 {getHeistFrequency()}
