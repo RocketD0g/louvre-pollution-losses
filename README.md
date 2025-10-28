@@ -1,73 +1,22 @@
-# Welcome to your Lovable project
+# AQ Heist — Visualising Air Pollution Costs in “Louvre Heists”
 
-## Project info
+[Live demo](https://aqheist.lovable.app/) • Built with [Lovable](https://lovable.dev/)
 
-**URL**: https://lovable.dev/projects/0e6e69d0-f583-4f98-9dc0-da350b0b4ef3
+## 🎯 What it is  
+AQ Heist is a web app that converts the **annual cost of outdoor air pollution-related health damages** in each country into a quirky unit: the value of the October 2025 Heist at the Louvre Museum. It also shows the real-time accumulating estimated economic damage due to outdoor air pollution by country and globally.
 
-## How can I edit this code?
 
-There are several ways of editing your application.
+## Why I did it  
+Air-pollution health damages are massive but hard to grasp. By translating them into a familiar narrative unit (“a Louvre heist”), we help make the scale **visually impactful** and easier to communicate.
 
-**Use Lovable**
+## Data source  
+- The annual cost figures come from the World Bank Report *[Air Pollution and Health  Table A.3](https://openknowledge.worldbank.org/entities/publication/c96ee144-4a4b-5164-ad79-74c051179eee)”*.  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0e6e69d0-f583-4f98-9dc0-da350b0b4ef3) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0e6e69d0-f583-4f98-9dc0-da350b0b4ef3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🔧 Tech stack & deployment  
+- Built in [Lovable](https://lovable.dev/) (no-/low-code front-end tool)  
+- Code synced to this GitHub repo  
+- Variant: React (if you export Lovable code)  
+- Hosting: Static deploy (Vercel/Netlify etc)  
+- Data upload: CSV/JSON file support  
+- Link: [Live site](https://aqheist.lovable.app/)  
