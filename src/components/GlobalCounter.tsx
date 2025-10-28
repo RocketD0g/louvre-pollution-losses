@@ -33,9 +33,9 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     return () => clearInterval(timer);
   }, [totalDamage, totalHeists]);
 
-  // Real-time increment based on annual rate of $8.1 trillion
+  // Real-time increment based on annual rate of $5.7 trillion
   useEffect(() => {
-    const annualDamage = 8.1e12; // $8.1 trillion per year
+    const annualDamage = 5.7e12; // $5.7 trillion per year
     const dailyRate = annualDamage / 365;
     const incrementPerSecond = dailyRate / (24 * 60 * 60);
 
@@ -55,9 +55,9 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     year: 'numeric' 
   });
 
-  // Calculate how often a Louvre heist occurs based on $8.1 trillion annual damage
+  // Calculate how often a Louvre heist occurs based on $5.7 trillion annual damage
   const louvreValue = 100e6; // $100M
-  const annualDamage = 8.1e12; // $8.1 trillion per year
+  const annualDamage = 5.7e12; // $5.7 trillion per year
   const heistsPerYear = annualDamage / louvreValue;
   const minutesPerYear = 365 * 24 * 60;
   const minutesPerHeist = minutesPerYear / heistsPerYear;
@@ -85,7 +85,15 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
           ${Math.round(displayDamage).toLocaleString('en-US')}
         </div>
         <p className="text-xl text-muted-foreground">
-          in USD <span className="text-xs text-muted-foreground/60">[source]</span>
+          in USD{' '}
+          <a 
+            href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-muted-foreground/60 hover:text-muted-foreground underline"
+          >
+            [source]
+          </a>
         </p>
       </div>
 
@@ -97,7 +105,15 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
           {getHeistFrequency()}
         </div>
         <p className="text-3xl md:text-4xl font-bold text-foreground mt-4">
-          this year worldwide <span className="text-sm text-muted-foreground/60">[source]</span>
+          minutes this year worldwide{' '}
+          <a 
+            href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground/60 hover:text-muted-foreground underline"
+          >
+            [source]
+          </a>
         </p>
       </div>
     </div>

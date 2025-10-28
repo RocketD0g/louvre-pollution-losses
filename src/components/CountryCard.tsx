@@ -59,13 +59,24 @@ export const CountryCard = ({ country, damageUSD, damagePerDayUSD, louvreHeists,
             </div>
             <div>
               <p className="text-sm text-muted-foreground">
-                A $100M Louvre heist every <span className="text-xs text-muted-foreground/60">[source]</span>
+                A $100M Louvre heist every
               </p>
               <p className="text-3xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
                 {getHeistFrequency()}
               </p>
             </div>
           </div>
+          <p className="text-xs text-muted-foreground/70 mt-4 italic">
+            Calculations are derived from annual outdoor air pollution damages detailed in this{' '}
+            <a 
+              href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground/80 hover:text-muted-foreground underline"
+            >
+              2022 World Bank report
+            </a>
+          </p>
         </div>
       </div>
     </Card>
