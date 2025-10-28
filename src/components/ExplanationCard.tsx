@@ -12,14 +12,14 @@ export const ExplanationCard = () => {
         </div>
         <div className="flex-1 space-y-4">
           <h3 className="text-2xl font-bold text-foreground">The World's Largest Ongoing Heist</h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-foreground/90 leading-relaxed">
             In October 2025, <a href="https://en.wikipedia.org/wiki/2025_Louvre_robbery" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">a major heist at the Louvre Museum</a> resulted in approximately{" "}
             <span className="font-bold text-foreground">${louvreValue} million USD</span> in stolen art. We're using
             this real-world heist as a unit of measurement to help visualize the massive scale of air pollution damages
             happening every day around the world.
           </p>
           <div className="pt-4 border-t border-border">
-            <p className="text-sm text-muted-foreground italic">
+            <p className="text-sm text-foreground/70 italic">
               Data represents estimated economic damages from air pollution in 2025 to date, including healthcare costs,
               lost productivity, and environmental impact.
             </p>

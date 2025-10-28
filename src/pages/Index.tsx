@@ -44,11 +44,11 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">Country Breakdown</h2>
-            <p className="text-lg text-muted-foreground text-center mb-6">
+            <p className="text-lg text-foreground/80 text-center mb-6">
               Search and explore outdoor air pollution damage by country
             </p>
             <div className="max-w-md mx-auto relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/60" />
               <Input
                 type="text"
                 placeholder="Search countries..."
@@ -74,7 +74,7 @@ const Index = () => {
 
           {filteredData.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-xl text-muted-foreground">No countries found matching "{searchQuery}"</p>
+              <p className="text-xl text-foreground/80">No countries found matching "{searchQuery}"</p>
             </div>
           )}
         </div>
