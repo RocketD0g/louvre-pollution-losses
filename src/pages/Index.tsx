@@ -25,7 +25,7 @@ const Index = () => {
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 text-center mb-8 max-w-3xl mx-auto">
               Outdoor air pollution damages measured in the most unlikely unit:
-              <span className="font-bold"> the October 2025 Louvre Museum heists</span>
+              <span className="font-bold"> the October 2025 Louvre Museum heist</span>
             </p>
             <GlobalCounter totalDamage={getTotalDamage()} totalHeists={getTotalHeists()} />
           </div>
@@ -45,7 +45,7 @@ const Index = () => {
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">Country Breakdown</h2>
             <p className="text-lg text-muted-foreground text-center mb-6">
-              Search and explore pollution damage by country
+              Search and explore outdoor air pollution damage by country
             </p>
             <div className="max-w-md mx-auto relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
