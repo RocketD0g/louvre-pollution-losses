@@ -4,18 +4,13 @@ import { GlobalCounter } from "@/components/GlobalCounter";
 import { CountryCard } from "@/components/CountryCard";
 import { ExplanationCard } from "@/components/ExplanationCard";
 import { Search } from "lucide-react";
-import {
-  pollutionData,
-  calculateLouvreHeists,
-  getTotalDamage,
-  getTotalHeists,
-} from "@/data/pollutionData";
+import { pollutionData, calculateLouvreHeists, getTotalDamage, getTotalHeists } from "@/data/pollutionData";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredData = pollutionData.filter((country) =>
-    country.country.toLowerCase().includes(searchQuery.toLowerCase())
+    country.country.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
@@ -26,16 +21,13 @@ const Index = () => {
         <div className="container mx-auto px-4 py-16 relative">
           <div className="max-w-5xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-black text-primary-foreground mb-6 text-center">
-              The Cost of Pollution
+              The Cost of Outdoor Air Pollution
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 text-center mb-8 max-w-3xl mx-auto">
-              Visualizing air pollution damages in 2025 to date, measured in the most unlikely unit:
-              <span className="font-bold"> Louvre Museum heists</span>
+              Visualizing outdoor air pollution damages in 2025 to date, measured in the most unlikely unit:
+              <span className="font-bold"> the October 2025 Louvre Museum heist</span>
             </p>
-            <GlobalCounter
-              totalDamage={getTotalDamage()}
-              totalHeists={getTotalHeists()}
-            />
+            <GlobalCounter totalDamage={getTotalDamage()} totalHeists={getTotalHeists()} />
           </div>
         </div>
       </header>
@@ -51,9 +43,7 @@ const Index = () => {
       <section className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
-              Country Breakdown
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">Country Breakdown</h2>
             <p className="text-lg text-muted-foreground text-center mb-6">
               Search and explore pollution damage by country
             </p>
@@ -70,23 +60,21 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredData.map((country) => (
-            <CountryCard
-              key={country.country}
-              country={country.country}
-              damageUSD={country.damageUSD}
-              damagePerDayUSD={country.damagePerDayUSD}
-              louvreHeists={calculateLouvreHeists(country.damageUSD)}
-              flag={country.flag}
-            />
-          ))}
+            {filteredData.map((country) => (
+              <CountryCard
+                key={country.country}
+                country={country.country}
+                damageUSD={country.damageUSD}
+                damagePerDayUSD={country.damagePerDayUSD}
+                louvreHeists={calculateLouvreHeists(country.damageUSD)}
+                flag={country.flag}
+              />
+            ))}
           </div>
 
           {filteredData.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-xl text-muted-foreground">
-                No countries found matching "{searchQuery}"
-              </p>
+              <p className="text-xl text-muted-foreground">No countries found matching "{searchQuery}"</p>
             </div>
           )}
         </div>
