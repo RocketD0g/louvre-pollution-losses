@@ -27,7 +27,7 @@ export const ExplanationCard = () => {
           </p>
           <div className="pt-4 border-t border-border">
             <p className="text-sm text-muted-foreground italic">
-              Data represents estimated economic damages from air pollution in 2024, including
+              Data represents estimated economic damages from air pollution in 2025 to date, including
               healthcare costs, lost productivity, and environmental impact.
             </p>
           </div>

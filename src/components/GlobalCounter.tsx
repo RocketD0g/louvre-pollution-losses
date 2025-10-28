@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { format } from "date-fns";
 
 interface GlobalCounterProps {
   totalDamage: number;
@@ -31,12 +32,17 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     return () => clearInterval(timer);
   }, [totalDamage, totalHeists]);
 
+  const currentDate = format(new Date(), "MMMM d, yyyy");
+
   return (
     <div className="text-center space-y-6 py-12">
       <div>
-        <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-4">
-          Total Global Air Pollution Damage (2024)
+        <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-2">
+          Total Global Air Pollution Damage
         </h2>
+        <p className="text-xl text-muted-foreground/80 mb-4">
+          2025 to date as of <span className="font-semibold">{currentDate}</span>
+        </p>
         <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
           ${(displayDamage / 1e12).toFixed(2)}T
         </div>

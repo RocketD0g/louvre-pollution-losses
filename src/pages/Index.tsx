@@ -29,7 +29,7 @@ const Index = () => {
               The Cost of Pollution
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 text-center mb-8 max-w-3xl mx-auto">
-              Visualizing air pollution damages in 2024, measured in the most unlikely unit:
+              Visualizing air pollution damages in 2025 to date, measured in the most unlikely unit:
               <span className="font-bold"> Louvre Museum heists</span>
             </p>
             <GlobalCounter
@@ -95,7 +95,7 @@ const Index = () => {
       <footer className="bg-muted/50 border-t border-border mt-20">
         <div className="container mx-auto px-4 py-8">
           <p className="text-center text-muted-foreground">
-            Data visualization of air pollution economic impact • 2024
+            Data visualization of air pollution economic impact • 2025
           </p>
         </div>
       </footer>
