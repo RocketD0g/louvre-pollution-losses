@@ -13,10 +13,10 @@ export const ExplanationCard = () => {
         <div className="flex-1 space-y-4">
           <h3 className="text-2xl font-bold text-foreground">The $100M Louvre Heist</h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            In October 2024, a major heist at the Louvre Museum resulted in approximately{" "}
+            In October 2025, a major heist at the Louvre Museum resulted in approximately{" "}
             <span className="font-bold text-foreground">${louvreValue} million USD</span> in stolen art. We're using
-            this real-world heist as a unit of measurement to help visualize the massive impact of air pollution on
-            economic losses due to air pollution happening every day around the world.
+            this real-world heist as a unit of measurement to help visualize the massive scale of air pollution damages
+            happening every day around the world.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
             When you see that air pollution causes "a Louvre heist every few minutes," it means the economic damage from
@@ -25,7 +25,8 @@ export const ExplanationCard = () => {
           </p>
           <div className="pt-4 border-t border-border">
             <p className="text-sm text-muted-foreground italic">
-              Data represents estimated economic losses from air pollution in 2025 to date, due to health damages.
+              Data represents estimated economic damages from air pollution in 2025 to date, including healthcare costs,
+              lost productivity, and environmental impact.
             </p>
           </div>
         </div>
