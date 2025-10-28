@@ -87,7 +87,7 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
 
       <div className="pt-8">
         <p className="text-2xl md:text-3xl text-muted-foreground mb-4">
-          That's equivalent to a $100M Louvre heist every
+          The estimated annual economic damage is equivalent to a $100M Louvre heist every
         </p>
         <div className="text-7xl md:text-9xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           {getHeistFrequency()}
