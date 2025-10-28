@@ -53,7 +53,7 @@ export const CountryCard = ({ country, damageUSD, damagePerDayUSD, louvreHeists,
           <div className="space-y-2">
             <div>
               <p className="text-sm text-foreground/80">Financial Damage of Air Pollution, Year-to-Date:</p>
-              <p className="text-2xl font-bold text-accent">${(displayDamage / 1e6).toFixed(4)}M</p>
+              <p className="text-2xl font-bold text-accent">${Math.floor(displayDamage).toLocaleString('en-US')}</p>
             </div>
             <div>
               <p className="text-sm text-foreground/80">
