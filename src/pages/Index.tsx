@@ -45,7 +45,7 @@ const Index = () => {
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">Country Breakdown</h2>
             <p className="text-lg text-muted-foreground text-center mb-6">
-              Search and explore pollution damage by country
+              Search and explore outdoor air pollution damage by country
             </p>
             <div className="max-w-md mx-auto relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
