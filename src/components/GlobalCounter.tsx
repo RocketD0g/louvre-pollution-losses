@@ -33,10 +33,11 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     return () => clearInterval(timer);
   }, [totalDamage, totalHeists]);
 
-  // Real-time increment based on daily rates
+  // Real-time increment based on annual rate of $8.1 trillion
   useEffect(() => {
-    const totalDailyRate = pollutionData.reduce((sum, c) => sum + c.damagePerDayUSD, 0);
-    const incrementPerSecond = totalDailyRate / (24 * 60 * 60);
+    const annualDamage = 8.1e12; // $8.1 trillion per year
+    const dailyRate = annualDamage / 365;
+    const incrementPerSecond = dailyRate / (24 * 60 * 60);
 
     const realtimeTimer = setInterval(() => {
       const elapsedSeconds = (Date.now() - startTime) / 1000;
@@ -54,11 +55,12 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     year: 'numeric' 
   });
 
-  // Calculate how often a Louvre heist occurs
+  // Calculate how often a Louvre heist occurs based on $8.1 trillion annual damage
   const louvreValue = 100e6; // $100M
-  const totalDailyRate = pollutionData.reduce((sum, c) => sum + c.damagePerDayUSD, 0);
-  const heistsPerDay = totalDailyRate / louvreValue;
-  const minutesPerHeist = (24 * 60) / heistsPerDay;
+  const annualDamage = 8.1e12; // $8.1 trillion per year
+  const heistsPerYear = annualDamage / louvreValue;
+  const minutesPerYear = 365 * 24 * 60;
+  const minutesPerHeist = minutesPerYear / heistsPerYear;
   
   const getHeistFrequency = () => {
     if (minutesPerHeist < 60) {
@@ -79,21 +81,23 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
         <p className="text-xl text-muted-foreground/80 mb-4">
           2025 to date as of <span className="font-semibold">{currentDate}</span>
         </p>
-        <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
-          ${(displayDamage / 1e12).toFixed(6)}T
+        <div className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
+          ${Math.round(displayDamage).toLocaleString('en-US')}
         </div>
-        <p className="text-xl text-muted-foreground">in USD</p>
+        <p className="text-xl text-muted-foreground">
+          in USD <span className="text-xs text-muted-foreground/60">[source]</span>
+        </p>
       </div>
 
       <div className="pt-8">
         <p className="text-2xl md:text-3xl text-muted-foreground mb-4">
-          That's equivalent to a $100M Louvre heist every
+          It's estimated that a $100M Louvre heist will happen every
         </p>
         <div className="text-7xl md:text-9xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           {getHeistFrequency()}
         </div>
         <p className="text-3xl md:text-4xl font-bold text-foreground mt-4">
-          worldwide
+          this year worldwide <span className="text-sm text-muted-foreground/60">[source]</span>
         </p>
       </div>
     </div>

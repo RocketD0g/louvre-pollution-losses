@@ -15,9 +15,11 @@ export const ExplanationCard = () => {
             The $100M Louvre Heist
           </h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            In October 2024, a major heist at the Louvre Museum resulted in approximately{" "}
-            <span className="font-bold text-foreground">${louvreValue} million USD</span> in stolen art.
-            We're using this real-world heist as a unit of measurement to help visualize the massive 
+            In October 2024, the Louvre Museum experienced a significant security breach resulting in the theft 
+            of masterworks valued at approximately{" "}
+            <span className="font-bold text-foreground">${louvreValue} million USD</span>{" "}
+            <span className="text-xs text-muted-foreground/60">[source]</span>.
+            We're using this heist as a unit of measurement to help visualize the massive 
             scale of air pollution damages happening every day around the world.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
@@ -27,8 +29,11 @@ export const ExplanationCard = () => {
           </p>
           <div className="pt-4 border-t border-border">
             <p className="text-sm text-muted-foreground italic">
-              Data represents estimated economic damages from air pollution in 2025 to date, including
-              healthcare costs, lost productivity, and environmental impact.
+              Data represents estimated economic damages from air pollution based on global annual costs of $8.1 trillion{" "}
+              <span className="text-xs text-muted-foreground/60">[source]</span>, including
+              healthcare costs, lost productivity, and environmental impact. Country-level calculations are derived from 
+              proportional damage estimates{" "}
+              <span className="text-xs text-muted-foreground/60">[source]</span>.
             </p>
           </div>
         </div>

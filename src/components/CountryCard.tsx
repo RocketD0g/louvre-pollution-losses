@@ -58,7 +58,9 @@ export const CountryCard = ({ country, damageUSD, damagePerDayUSD, louvreHeists,
               </p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">A $100M Louvre heist every</p>
+              <p className="text-sm text-muted-foreground">
+                A $100M Louvre heist every <span className="text-xs text-muted-foreground/60">[source]</span>
+              </p>
               <p className="text-3xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
                 {getHeistFrequency()}
               </p>
