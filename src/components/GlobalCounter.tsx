@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
 
 interface GlobalCounterProps {
   totalDamage: number;
@@ -32,7 +31,11 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     return () => clearInterval(timer);
   }, [totalDamage, totalHeists]);
 
-  const currentDate = format(new Date(), "MMMM d, yyyy");
+  const currentDate = new Date().toLocaleDateString('en-US', { 
+    month: 'long', 
+    day: 'numeric', 
+    year: 'numeric' 
+  });
 
   return (
     <div className="text-center space-y-6 py-12">
