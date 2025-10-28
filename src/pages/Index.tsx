@@ -24,8 +24,8 @@ const Index = () => {
               The Cost of Outdoor Air Pollution
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 text-center mb-8 max-w-3xl mx-auto">
-              Visualizing outdoor air pollution damages in 2025 to date, measured in the most unlikely unit:
-              <span className="font-bold"> the October 2025 Louvre Museum heist</span>
+              Outdoor air pollution damages measured in the most unlikely unit:
+              <span className="font-bold"> the October 2025 Louvre Museum heists</span>
             </p>
             <GlobalCounter totalDamage={getTotalDamage()} totalHeists={getTotalHeists()} />
           </div>
