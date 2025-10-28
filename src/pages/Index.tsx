@@ -97,6 +97,17 @@ const Index = () => {
           <p className="text-center text-muted-foreground">
             Random Side Project by Christa Hasenkopf • christa.hasenkopf@gmail.com • 2025
           </p>
+          <p className="text-center text-muted-foreground mt-2">
+            Underlying code is open source on{" "}
+            <a
+              href="https://github.com/RocketD0g/louvre-pollution-losses/tree/main"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              GitHub
+            </a>
+          </p>
         </div>
       </footer>
     </div>
