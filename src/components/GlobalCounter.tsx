@@ -74,15 +74,25 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     <div className="text-center space-y-6 py-12">
       <div>
         <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-2">
-          Total Global Air Pollution Damage
+          Total Global Outdoor Air Pollution Damage
         </h2>
         <p className="text-xl text-muted-foreground/80 mb-4">
           Year-to-Date as of <span className="font-semibold">{currentDate}</span>
         </p>
         <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
-          ${(displayDamage / 1e12).toFixed(6)}T
+          ${Math.floor(displayDamage / 1e6).toLocaleString()}
         </div>
-        <p className="text-xl text-muted-foreground">in USD</p>
+        <p className="text-xl text-muted-foreground">
+          in USD (millions){" "}
+          <a
+            href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            [source]
+          </a>
+        </p>
       </div>
 
       <div className="pt-8">
