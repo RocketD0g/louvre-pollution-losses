@@ -33,11 +33,10 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     return () => clearInterval(timer);
   }, [totalDamage, totalHeists]);
 
-  // Real-time increment based on annual rate of $5.7 trillion
+  // Real-time increment based on daily rates
   useEffect(() => {
-    const annualDamage = 5.7e12; // $5.7 trillion per year
-    const dailyRate = annualDamage / 365;
-    const incrementPerSecond = dailyRate / (24 * 60 * 60);
+    const totalDailyRate = pollutionData.reduce((sum, c) => sum + c.damagePerDayUSD, 0);
+    const incrementPerSecond = totalDailyRate / (24 * 60 * 60);
 
     const realtimeTimer = setInterval(() => {
       const elapsedSeconds = (Date.now() - startTime) / 1000;
@@ -49,19 +48,18 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     return () => clearInterval(realtimeTimer);
   }, [totalDamage, startTime]);
 
-  const currentDate = new Date().toLocaleDateString('en-US', { 
-    month: 'long', 
-    day: 'numeric', 
-    year: 'numeric' 
+  const currentDate = new Date().toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   });
 
-  // Calculate how often a Louvre heist occurs based on $5.7 trillion annual damage
+  // Calculate how often a Louvre heist occurs
   const louvreValue = 100e6; // $100M
-  const annualDamage = 5.7e12; // $5.7 trillion per year
-  const heistsPerYear = annualDamage / louvreValue;
-  const minutesPerYear = 365 * 24 * 60;
-  const minutesPerHeist = minutesPerYear / heistsPerYear;
-  
+  const totalDailyRate = pollutionData.reduce((sum, c) => sum + c.damagePerDayUSD, 0);
+  const heistsPerDay = totalDailyRate / louvreValue;
+  const minutesPerHeist = (24 * 60) / heistsPerDay;
+
   const getHeistFrequency = () => {
     if (minutesPerHeist < 60) {
       return `${minutesPerHeist.toFixed(2)} minutes`;
@@ -81,40 +79,20 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
         <p className="text-xl text-muted-foreground/80 mb-4">
           2025 to date as of <span className="font-semibold">{currentDate}</span>
         </p>
-        <div className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
-          ${Math.round(displayDamage).toLocaleString('en-US')}
+        <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
+          ${(displayDamage / 1e12).toFixed(6)}T
         </div>
-        <p className="text-xl text-muted-foreground">
-          in USD{' '}
-          <a 
-            href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-muted-foreground/60 hover:text-muted-foreground underline"
-          >
-            [source]
-          </a>
-        </p>
+        <p className="text-xl text-muted-foreground">in USD</p>
       </div>
 
       <div className="pt-8">
         <p className="text-2xl md:text-3xl text-muted-foreground mb-4">
-          It's estimated that a $100M Louvre heist will happen every
+          That's equivalent to a $100M Louvre heist every:
         </p>
         <div className="text-7xl md:text-9xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           {getHeistFrequency()}
         </div>
-        <p className="text-3xl md:text-4xl font-bold text-foreground mt-4">
-          minutes this year worldwide{' '}
-          <a 
-            href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-muted-foreground/60 hover:text-muted-foreground underline"
-          >
-            [source]
-          </a>
-        </p>
+        <p className="text-3xl md:text-4xl font-bold text-foreground mt-4">worldwide</p>
       </div>
     </div>
   );
