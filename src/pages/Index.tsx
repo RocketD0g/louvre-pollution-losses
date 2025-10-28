@@ -70,15 +70,16 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredData.map((country) => (
-              <CountryCard
-                key={country.country}
-                country={country.country}
-                damageUSD={country.damageUSD}
-                louvreHeists={calculateLouvreHeists(country.damageUSD)}
-                flag={country.flag}
-              />
-            ))}
+          {filteredData.map((country) => (
+            <CountryCard
+              key={country.country}
+              country={country.country}
+              damageUSD={country.damageUSD}
+              damagePerDayUSD={country.damagePerDayUSD}
+              louvreHeists={calculateLouvreHeists(country.damageUSD)}
+              flag={country.flag}
+            />
+          ))}
           </div>
 
           {filteredData.length === 0 && (

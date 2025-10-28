@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Info } from "lucide-react";
 
 export const ExplanationCard = () => {
-  const louvreValue = 10; // billions USD
+  const louvreValue = 100; // millions USD
 
   return (
     <Card className="p-8 bg-gradient-to-br from-primary/5 to-accent/5 border-2">
@@ -16,7 +16,7 @@ export const ExplanationCard = () => {
           </h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
             The Louvre Museum houses some of the world's most valuable art, with an estimated
-            total collection value of <span className="font-bold text-foreground">${louvreValue} billion USD</span>.
+            total collection value of <span className="font-bold text-foreground">${louvreValue} million USD</span>.
             We're using a hypothetical "complete Louvre heist" as a unit of measurement to help
             visualize the massive scale of air pollution damages.
           </p>

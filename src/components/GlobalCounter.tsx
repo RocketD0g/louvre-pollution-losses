@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { pollutionData, calculateLouvreHeists } from "@/data/pollutionData";
 
 interface GlobalCounterProps {
   totalDamage: number;
@@ -8,6 +9,7 @@ interface GlobalCounterProps {
 export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) => {
   const [displayDamage, setDisplayDamage] = useState(0);
   const [displayHeists, setDisplayHeists] = useState(0);
+  const [startTime] = useState(Date.now());
 
   useEffect(() => {
     const duration = 2000;
@@ -31,6 +33,21 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     return () => clearInterval(timer);
   }, [totalDamage, totalHeists]);
 
+  // Real-time increment based on daily rates
+  useEffect(() => {
+    const totalDailyRate = pollutionData.reduce((sum, c) => sum + c.damagePerDayUSD, 0);
+    const incrementPerSecond = totalDailyRate / (24 * 60 * 60);
+
+    const realtimeTimer = setInterval(() => {
+      const elapsedSeconds = (Date.now() - startTime) / 1000;
+      const additionalDamage = incrementPerSecond * elapsedSeconds;
+      setDisplayDamage(totalDamage + additionalDamage);
+      setDisplayHeists(calculateLouvreHeists(totalDamage + additionalDamage));
+    }, 100);
+
+    return () => clearInterval(realtimeTimer);
+  }, [totalDamage, startTime]);
+
   const currentDate = new Date().toLocaleDateString('en-US', { 
     month: 'long', 
     day: 'numeric', 
@@ -47,7 +64,7 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
           2025 to date as of <span className="font-semibold">{currentDate}</span>
         </p>
         <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
-          ${(displayDamage / 1e12).toFixed(2)}T
+          ${(displayDamage / 1e9).toFixed(6)}B
         </div>
         <p className="text-xl text-muted-foreground">in USD</p>
       </div>
@@ -57,7 +74,7 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
           That's equivalent to
         </p>
         <div className="text-7xl md:text-9xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          {displayHeists.toFixed(0)}
+          {displayHeists.toFixed(4)}
         </div>
         <p className="text-3xl md:text-4xl font-bold text-foreground mt-4">
           Louvre Museum heists
