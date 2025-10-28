@@ -12,18 +12,18 @@ export const ExplanationCard = () => {
         </div>
         <div className="flex-1 space-y-4">
           <h3 className="text-2xl font-bold text-foreground">
-            What's a "Louvre heist"?
+            The $100M Louvre Heist
           </h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            The Louvre Museum houses some of the world's most valuable art, with an estimated
-            total collection value of <span className="font-bold text-foreground">${louvreValue} million USD</span>.
-            We're using a hypothetical "complete Louvre heist" as a unit of measurement to help
-            visualize the massive scale of air pollution damages.
+            In October 2024, a major heist at the Louvre Museum resulted in approximately{" "}
+            <span className="font-bold text-foreground">${louvreValue} million USD</span> in stolen art.
+            We're using this real-world heist as a unit of measurement to help visualize the massive 
+            scale of air pollution damages happening every day around the world.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            When you see a country has lost the equivalent of "5 Louvre heists," imagine someone
-            stealing the entire Louvre Museum collection five times over. It makes these
-            abstract billions more tangible.
+            When you see that air pollution causes "a Louvre heist every few minutes," it means 
+            the economic damage from air pollution accumulates at such a staggering rate that it's 
+            equivalent to this major art theft happening over and over again, continuously.
           </p>
           <div className="pt-4 border-t border-border">
             <p className="text-sm text-muted-foreground italic">

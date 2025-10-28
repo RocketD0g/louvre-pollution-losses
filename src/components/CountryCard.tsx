@@ -29,6 +29,21 @@ export const CountryCard = ({ country, damageUSD, damagePerDayUSD, louvreHeists,
 
     return () => clearInterval(timer);
   }, [damageUSD, damagePerDayUSD, startTime]);
+  // Calculate how often a Louvre heist occurs for this country
+  const louvreValue = 100e6; // $100M
+  const heistsPerDay = damagePerDayUSD / louvreValue;
+  const minutesPerHeist = (24 * 60) / heistsPerDay;
+  
+  const getHeistFrequency = () => {
+    if (minutesPerHeist < 60) {
+      return `${minutesPerHeist.toFixed(2)} minutes`;
+    } else if (minutesPerHeist < 24 * 60) {
+      return `${(minutesPerHeist / 60).toFixed(2)} hours`;
+    } else {
+      return `${(minutesPerHeist / (24 * 60)).toFixed(2)} days`;
+    }
+  };
+
   return (
     <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-start gap-4">
@@ -37,15 +52,15 @@ export const CountryCard = ({ country, damageUSD, damagePerDayUSD, louvreHeists,
           <h3 className="text-xl font-bold text-foreground mb-2">{country}</h3>
           <div className="space-y-2">
             <div>
-              <p className="text-sm text-muted-foreground">Financial Damage</p>
+              <p className="text-sm text-muted-foreground">Financial Damage of Air Pollution</p>
               <p className="text-2xl font-bold text-accent">
                 ${(displayDamage / 1e6).toFixed(4)}M
               </p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Equivalent to</p>
+              <p className="text-sm text-muted-foreground">A $100M Louvre heist every</p>
               <p className="text-3xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-                {displayHeists.toFixed(4)} Louvre heists
+                {getHeistFrequency()}
               </p>
             </div>
           </div>

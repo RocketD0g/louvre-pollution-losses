@@ -54,6 +54,22 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     year: 'numeric' 
   });
 
+  // Calculate how often a Louvre heist occurs
+  const louvreValue = 100e6; // $100M
+  const totalDailyRate = pollutionData.reduce((sum, c) => sum + c.damagePerDayUSD, 0);
+  const heistsPerDay = totalDailyRate / louvreValue;
+  const minutesPerHeist = (24 * 60) / heistsPerDay;
+  
+  const getHeistFrequency = () => {
+    if (minutesPerHeist < 60) {
+      return `${minutesPerHeist.toFixed(2)} minutes`;
+    } else if (minutesPerHeist < 24 * 60) {
+      return `${(minutesPerHeist / 60).toFixed(2)} hours`;
+    } else {
+      return `${(minutesPerHeist / (24 * 60)).toFixed(2)} days`;
+    }
+  };
+
   return (
     <div className="text-center space-y-6 py-12">
       <div>
@@ -64,20 +80,20 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
           2025 to date as of <span className="font-semibold">{currentDate}</span>
         </p>
         <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
-          ${(displayDamage / 1e9).toFixed(6)}B
+          ${(displayDamage / 1e12).toFixed(6)}T
         </div>
         <p className="text-xl text-muted-foreground">in USD</p>
       </div>
 
       <div className="pt-8">
         <p className="text-2xl md:text-3xl text-muted-foreground mb-4">
-          That's equivalent to
+          That's equivalent to a $100M Louvre heist every
         </p>
         <div className="text-7xl md:text-9xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          {displayHeists.toFixed(4)}
+          {getHeistFrequency()}
         </div>
         <p className="text-3xl md:text-4xl font-bold text-foreground mt-4">
-          Louvre Museum heists
+          worldwide
         </p>
       </div>
     </div>
