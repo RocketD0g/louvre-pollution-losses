@@ -11,7 +11,7 @@ export const ExplanationCard = () => {
           <Info className="w-6 h-6 text-primary" />
         </div>
         <div className="flex-1 space-y-4">
-          <h3 className="text-2xl font-bold text-foreground">The $100M Louvre Heist</h3>
+          <h3 className="text-2xl font-bold text-foreground">The World Largest Ongoing Heist</h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
             In October 2024, a major heist at the Louvre Museum resulted in approximately{" "}
             <span className="font-bold text-foreground">${louvreValue} million USD</span> in stolen art. We're using
