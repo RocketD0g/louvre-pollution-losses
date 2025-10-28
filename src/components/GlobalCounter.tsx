@@ -85,7 +85,7 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
         <p className="text-xl text-muted-foreground">
           in USD{" "}
           <a
-            href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
+            href="https://openknowledge.worldbank.org/entities/publication/c96ee144-4a4b-5164-ad79-74c051179eee"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline"
