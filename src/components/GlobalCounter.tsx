@@ -79,11 +79,11 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
         <p className="text-xl text-muted-foreground/80 mb-4">
           Year-to-Date as of <span className="font-semibold">{currentDate}</span>
         </p>
-        <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
-          ${Math.floor(displayDamage / 1e6).toLocaleString()}
+        <div className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent mb-2">
+          ${Math.floor(displayDamage).toLocaleString()}
         </div>
         <p className="text-xl text-muted-foreground">
-          in USD (millions){" "}
+          in USD{" "}
           <a
             href="https://openknowledge.worldbank.org/server/api/core/bitstreams/550b7a9b-4d1f-5d2f-a439-40692d4eedf3/content"
             target="_blank"
