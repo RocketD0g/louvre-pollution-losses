@@ -24,7 +24,7 @@ const Index = () => {
               The Cost of Outdoor Air Pollution
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 text-center mb-8 max-w-3xl mx-auto">
-              Outdoor air pollution damages measured in the most unlikely unit:
+              Outdoor air pollution damages measured in an unlikely unit:
               <span className="font-bold"> the October 2025 Louvre Museum heist</span>
             </p>
             <GlobalCounter totalDamage={getTotalDamage()} totalHeists={getTotalHeists()} />
@@ -45,7 +45,15 @@ const Index = () => {
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">Country Breakdown</h2>
             <p className="text-sm text-foreground/70 text-center mb-2">
-              All calculations use Table A3 from this <a href="https://openknowledge.worldbank.org/entities/publication/c96ee144-4a4b-5164-ad79-74c051179eee" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">World Bank 2022 report</a>
+              All calculations use Table A3 from this{" "}
+              <a
+                href="https://openknowledge.worldbank.org/entities/publication/c96ee144-4a4b-5164-ad79-74c051179eee"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                World Bank 2022 report
+              </a>
             </p>
             <p className="text-lg text-foreground/80 text-center mb-6">
               Search and explore outdoor air pollution damage by country
