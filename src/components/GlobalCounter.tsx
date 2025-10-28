@@ -74,7 +74,7 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
     <div className="text-center space-y-6 py-12">
       <div>
         <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-2">
-          Total Global Air Pollution Damage
+          Total Estimated Global Outdoor Air Pollution Damage
         </h2>
         <p className="text-xl text-muted-foreground/80 mb-4">
           2025 to date as of <span className="font-semibold">{currentDate}</span>
@@ -87,7 +87,7 @@ export const GlobalCounter = ({ totalDamage, totalHeists }: GlobalCounterProps) 
 
       <div className="pt-8">
         <p className="text-2xl md:text-3xl text-muted-foreground mb-4">
-          That's equivalent to a $100M Louvre heist every:
+          That's equivalent to a $100M Louvre heist every
         </p>
         <div className="text-7xl md:text-9xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           {getHeistFrequency()}
