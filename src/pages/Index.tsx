@@ -44,6 +44,9 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">Country Breakdown</h2>
+            <p className="text-sm text-foreground/70 text-center mb-2">
+              All calculations use Table A3 from this <a href="https://openknowledge.worldbank.org/entities/publication/c96ee144-4a4b-5164-ad79-74c051179eee" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">World Bank 2022 report</a>
+            </p>
             <p className="text-lg text-foreground/80 text-center mb-6">
               Search and explore outdoor air pollution damage by country
             </p>
