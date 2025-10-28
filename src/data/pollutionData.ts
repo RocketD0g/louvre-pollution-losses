@@ -251,7 +251,12 @@ export const pollutionData: CountryPollutionData[] = [
 ];
 
 export const getTotalDamage = (): number => {
-  return pollutionData.reduce((sum, country) => sum + country.damageUSD, 0);
+  // Using $8.1 trillion as the baseline annual global air pollution damage
+  // This represents the year-to-date damage as a proportion of the annual total
+  const annualDamage = 8.1e12; // $8.1 trillion per year
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
+  const daysInYear = 365;
+  return (annualDamage / daysInYear) * dayOfYear;
 };
 
 export const getTotalHeists = (): number => {
